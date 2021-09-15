@@ -15,12 +15,27 @@
               Gerentes
             </router-link>
           </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link" @click.prevent="logout">Sair</a>
+          </li>
         </ul>
       </div>
     </nav>
     <router-view/>
   </div>
 </template>
+
+
+<script>
+export default {
+  methods: {
+    logout() {
+      localStorage.removeItem('token')
+      this.$router.push({ name: 'login' })
+    }
+  }
+}
+</script>
 
 <style>
 .navbar {
